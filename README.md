@@ -9,6 +9,7 @@ Configuration is covered by environment variables:
 - `BIND_ZONE` - zone domain
 - `BIND_KEY` - TSIG secret
 - `BIND_KEY_ALG` - TSIG algorithm (defaults to hmac-sha256)
+- `BIND_KEY_NAME` - TSIG key name (defaults to "external-dns")
 
 A Kubernetes secret manifest containing a TSIG key can be generated:
 
