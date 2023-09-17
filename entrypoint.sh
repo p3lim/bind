@@ -7,8 +7,8 @@ fi
 if [ "$1" = 'tsig' ]; then
   # generate tsig key and expose variables
   export SECRET_KEY="$(/usr/sbin/tsig-keygen -a $BIND_KEY_ALG externaldns-key | /usr/bin/awk -F'"' '/secret/{print $2}' | /bin/base64)"
-  export SECRET_NAME="${1:-bind-tsig}"
-  export SECRET_NAMESPACE="$2"
+  export SECRET_NAME="${2:-bind-tsig}"
+  export SECRET_NAMESPACE="$3"
 
   # render manifest to stdout
   /usr/bin/envsubst < /templates/secret.yaml | /bin/sed '/namespace: $/d'
